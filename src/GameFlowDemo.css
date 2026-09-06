@@ -1,0 +1,633 @@
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap");
+
+.ig-root {
+  --night-bg: #100d1b;
+  --night-surface: #1c1830;
+  --night-surface-2: #262042;
+  --night-ink: #ede7fa;
+  --night-ink-dim: #9c93be;
+  --day-bg: #f1e8d6;
+  --day-surface: #ffffff;
+  --day-surface-2: #e9ddc3;
+  --day-ink: #2a2115;
+  --day-ink-dim: #7a6e56;
+  --ember: #e85a2a;
+  --ember-dim: #8c3a1f;
+  --brass: #c9a24b;
+  --villager: #4e8c6b;
+  --bomber: #b23a2e;
+  --line: rgba(255, 255, 255, 0.09);
+  --radius: 14px;
+
+  font-family: "Noto Sans Thai", "Chakra Petch", sans-serif;
+  background: #0a0810;
+  color: var(--night-ink);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 24px 12px;
+  box-sizing: border-box;
+}
+.ig-root *,
+.ig-root *::before,
+.ig-root *::after {
+  box-sizing: border-box;
+}
+.ig-display {
+  font-family: "Chakra Petch", "Noto Sans Thai", sans-serif;
+}
+
+.ig-phone {
+  width: 100%;
+  max-width: 420px;
+  background: var(--night-bg);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  min-height: 780px;
+  transition: background 0.5s ease, color 0.5s ease;
+}
+.ig-phone.day {
+  background: var(--day-bg);
+  color: var(--day-ink);
+}
+
+/* ---- Top stepper ---- */
+.ig-stepper {
+  padding: 16px 18px 14px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ig-phone.day .ig-stepper {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+.ig-stepper-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ig-round-tag {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--night-ink-dim);
+}
+.ig-phone.day .ig-round-tag {
+  color: var(--day-ink-dim);
+}
+.ig-phase-name {
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+}
+.ig-dots {
+  display: flex;
+  gap: 5px;
+}
+.ig-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--night-ink-dim);
+  opacity: 0.35;
+}
+.ig-phone.day .ig-dot {
+  background: var(--day-ink-dim);
+}
+.ig-dot.active {
+  opacity: 1;
+  background: var(--ember);
+}
+.ig-dot.done {
+  opacity: 0.7;
+  background: var(--brass);
+}
+
+/* ---- content ---- */
+.ig-content {
+  flex: 1;
+  padding: 22px 18px 10px;
+  overflow-y: auto;
+}
+.ig-title {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+.ig-sub {
+  font-size: 13.5px;
+  color: var(--night-ink-dim);
+  line-height: 1.55;
+  margin: 0 0 18px;
+}
+.ig-phone.day .ig-sub {
+  color: var(--day-ink-dim);
+}
+
+/* buttons */
+.ig-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease;
+}
+.ig-btn:active {
+  transform: scale(0.98);
+}
+.ig-btn-primary {
+  background: var(--ember);
+  color: #fff;
+}
+.ig-btn-primary:hover {
+  filter: brightness(1.08);
+}
+.ig-btn-ghost {
+  background: transparent;
+  color: var(--night-ink);
+  border: 1px solid var(--line);
+}
+.ig-phone.day .ig-btn-ghost {
+  color: var(--day-ink);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+.ig-btn-brass {
+  background: var(--brass);
+  color: #241b05;
+}
+.ig-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+/* card */
+.ig-card {
+  background: var(--night-surface);
+  border-radius: var(--radius);
+  padding: 16px;
+  border: 1px solid var(--line);
+  margin-bottom: 12px;
+}
+.ig-phone.day .ig-card {
+  background: var(--day-surface);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+}
+
+/* lobby */
+.ig-room-code {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 38px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--brass);
+  text-align: center;
+  padding: 22px 0;
+}
+.ig-player-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--line);
+}
+.ig-phone.day .ig-player-row {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.ig-player-row:last-child {
+  border-bottom: none;
+}
+.ig-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--night-surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+.ig-avatar.small {
+  width: 26px;
+  height: 26px;
+  font-size: 11px;
+}
+.ig-phone.day .ig-avatar {
+  background: var(--day-surface-2);
+}
+.ig-player-name {
+  flex: 1;
+  font-size: 14px;
+}
+.ig-host-badge {
+  font-size: 10px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  color: var(--brass);
+  border: 1px solid var(--brass);
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+/* role card */
+.ig-role-flip-wrap {
+  perspective: 1200px;
+  margin: 8px 0 20px;
+}
+.ig-role-flip {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: pointer;
+}
+.ig-role-flip.flipped {
+  transform: rotateY(180deg);
+}
+.ig-role-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  text-align: center;
+}
+.ig-role-face.back {
+  background: linear-gradient(155deg, var(--night-surface-2), var(--night-surface));
+  border: 1px solid var(--line);
+}
+.ig-role-face.back .ig-qmark {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 52px;
+  color: var(--brass);
+  opacity: 0.5;
+}
+.ig-role-face.front {
+  transform: rotateY(180deg);
+  border: 1px solid var(--brass);
+  background: linear-gradient(155deg, #241d3d, #181329);
+}
+.ig-role-icon {
+  font-size: 44px;
+  margin-bottom: 8px;
+}
+.ig-role-name {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+  color: #fff;
+}
+.ig-role-faction {
+  margin-top: 6px;
+  font-size: 11px;
+  font-family: "Chakra Petch", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+.ig-role-faction.villagers {
+  background: rgba(78, 140, 107, 0.18);
+  color: #7fd9a8;
+}
+.ig-role-faction.bombers {
+  background: rgba(178, 58, 46, 0.18);
+  color: #f0897c;
+}
+.ig-role-desc {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: var(--night-ink-dim);
+  line-height: 1.5;
+}
+
+/* option list (questions/players) */
+.ig-opt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--night-surface);
+  margin-bottom: 9px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: border-color 0.15s, background 0.15s;
+}
+.ig-phone.day .ig-opt {
+  background: var(--day-surface);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.ig-opt.selected {
+  border-color: var(--ember);
+  background: rgba(232, 90, 42, 0.1);
+}
+.ig-opt-radio {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--night-ink-dim);
+  flex-shrink: 0;
+}
+.ig-opt.selected .ig-opt-radio {
+  border-color: var(--ember);
+  background: var(--ember);
+}
+
+/* timer */
+.ig-timer-ring {
+  width: 120px;
+  height: 120px;
+  margin: 6px auto 18px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ig-timer-num {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--ember);
+  position: absolute;
+}
+.ig-ring circle {
+  fill: none;
+  stroke-width: 6;
+}
+.ig-ring-bg {
+  stroke: var(--night-surface-2);
+}
+.ig-phone.day .ig-ring-bg {
+  stroke: var(--day-surface-2);
+}
+.ig-ring-fg {
+  stroke: var(--ember);
+  stroke-linecap: round;
+}
+
+/* skill / waiting */
+.ig-waiting-wrap {
+  text-align: center;
+  padding: 50px 10px;
+}
+.ig-pulse-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ember);
+  margin: 0 auto 20px;
+  animation: ig-pulse 1.4s ease-in-out infinite;
+}
+@keyframes ig-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0.4;
+  }
+}
+
+/* footer */
+.ig-footer {
+  padding: 14px 18px 20px;
+  display: flex;
+  gap: 10px;
+  border-top: 1px solid var(--line);
+}
+.ig-phone.day .ig-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* tag pill */
+.ig-pill {
+  display: inline-block;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: var(--night-surface-2);
+  color: var(--night-ink-dim);
+  margin-bottom: 10px;
+}
+.ig-phone.day .ig-pill {
+  background: var(--day-surface-2);
+  color: var(--day-ink-dim);
+}
+.ig-pill.warn {
+  background: rgba(232, 90, 42, 0.16);
+  color: var(--ember);
+}
+
+/* vote bar */
+.ig-vote-tally {
+  display: flex;
+  height: 10px;
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 14px 0 6px;
+}
+.ig-vote-tally .ig-bar {
+  height: 100%;
+}
+.ig-vote-legend {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11.5px;
+  color: var(--night-ink-dim);
+}
+.ig-phone.day .ig-vote-legend {
+  color: var(--day-ink-dim);
+}
+
+/* role selector chip (dev/demo helper) */
+.ig-dev-bar {
+  background: #050409;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.ig-dev-label {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 10px;
+  color: #6c6486;
+  flex-shrink: 0;
+}
+.ig-chip {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: 1px solid #2a2445;
+  color: #b6add6;
+  cursor: pointer;
+  flex-shrink: 0;
+  background: transparent;
+}
+.ig-chip.active {
+  background: var(--brass);
+  color: #241b05;
+  border-color: var(--brass);
+}
+
+/* question editor (host) */
+.ig-qedit-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 9px;
+}
+.ig-qedit-row input {
+  flex: 1;
+  background: var(--night-surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 11px 12px;
+  color: var(--night-ink);
+  font-size: 13.5px;
+  font-family: "Noto Sans Thai", sans-serif;
+}
+.ig-phone.day .ig-qedit-row input {
+  background: var(--day-surface);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: var(--day-ink);
+}
+.ig-qedit-row input::placeholder {
+  color: var(--night-ink-dim);
+}
+.ig-icon-btn {
+  width: 40px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--night-ink-dim);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* entry / join room */
+.ig-logo-mark {
+  font-size: 40px;
+  text-align: center;
+  margin: 30px 0 4px;
+}
+.ig-field {
+  margin-bottom: 14px;
+}
+.ig-field label {
+  display: block;
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--night-ink-dim);
+  margin-bottom: 6px;
+}
+.ig-phone.day .ig-field label {
+  color: var(--day-ink-dim);
+}
+.ig-field input {
+  width: 100%;
+  background: var(--night-surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 13px 14px;
+  color: var(--night-ink);
+  font-size: 15px;
+  font-family: "Chakra Petch", "Noto Sans Thai", sans-serif;
+}
+.ig-field input.code {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+.ig-field input::placeholder {
+  color: var(--night-ink-dim);
+  letter-spacing: normal;
+  text-transform: none;
+  font-weight: 400;
+}
+.ig-field-error {
+  font-size: 12.5px;
+  color: var(--ember);
+  margin: -6px 0 14px;
+}
+.ig-entry-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* end game */
+.ig-winner-banner {
+  text-align: center;
+  padding: 30px 16px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+.ig-winner-banner.villagers-win {
+  background: linear-gradient(155deg, rgba(78, 140, 107, 0.25), rgba(78, 140, 107, 0.06));
+  border: 1px solid rgba(127, 217, 168, 0.3);
+}
+.ig-winner-banner.bombers-win {
+  background: linear-gradient(155deg, rgba(178, 58, 46, 0.25), rgba(178, 58, 46, 0.06));
+  border: 1px solid rgba(240, 137, 124, 0.3);
+}
+.ig-winner-title {
+  font-family: "Chakra Petch", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+}
+.ig-result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  font-size: 13.5px;
+}
+.ig-phone.day .ig-result-row {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.ig-result-row:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 400px) {
+  .ig-phone {
+    min-height: 100vh;
+    border-radius: 0;
+  }
+}
