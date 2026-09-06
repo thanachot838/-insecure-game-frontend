@@ -1361,6 +1361,7 @@ function DayScreen({
   if (dayStep === "answer") {
     return (
       <>
+        <span className="ig-round-tag">รอบ {round}</span>
         <p className="ig-sub">ใช้ชุดคำถามที่ถูกล็อกไว้ตั้งแต่คืนแรก ทุกคนตอบพร้อมกัน (ตอบได้ครั้งเดียวต่อรอบ)</p>
         {countdown && <TimerLabel label={countdown} />}
         <h1 className="ig-title" style={{ fontSize: 18 }}>
@@ -1392,6 +1393,7 @@ function DayScreen({
   if (dayStep === "discuss") {
     return (
       <>
+        <span className="ig-round-tag">รอบ {round}</span>
         {countdown && <TimerLabel label={countdown} />}
         <p className="ig-sub" style={{ textAlign: "center" }}>
           พูดคุยหารือกันในห้องก่อนโหวต ใครน่าสงสัยว่าเกี่ยวข้องกับระเบิดบ้าง?
@@ -1416,6 +1418,7 @@ function DayScreen({
   const totalWeight = Object.values(voteTally ?? {}).reduce((a, b) => a + b, 0);
   return (
     <>
+      <span className="ig-round-tag">รอบ {round}</span>
       {countdown && <TimerLabel label={countdown} />}
       <p className="ig-sub">โหวตผู้เล่นที่คุณสงสัย — เซิร์ฟเวอร์เช็คเงื่อนไขเอกฉันท์ให้เอง</p>
       <PlayerPicker players={otherPlayers} selectedId={selectedTargetId} onSelect={onSelectTarget} />
